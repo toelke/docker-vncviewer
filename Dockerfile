@@ -1,4 +1,4 @@
-FROM debian:bullseye-20230814 AS downloader
+FROM debian:bookworm-20230904 AS downloader
 
 RUN apt update && apt install -y xtightvncviewer
 RUN mkdir /libs; ldd /usr/bin/vncviewer | grep '=>' | awk '{ print $3; }' | xargs -I_ -n 1 cp _ /libs
