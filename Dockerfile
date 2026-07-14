@@ -1,4 +1,4 @@
-FROM debian:trixie-20260623 AS downloader
+FROM debian:13 AS downloader
 
 RUN apt update && apt install -y xtightvncviewer
 RUN mkdir /libs; ldd /usr/bin/vncviewer | grep '=>' | awk '{ print $3; }' | xargs -I_ -n 1 cp _ /libs
